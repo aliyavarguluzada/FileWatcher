@@ -78,7 +78,7 @@ namespace CodingTest.UI
             // 
             // StartStop
             // 
-            StartStop.Location = new Point(582, 270);
+            StartStop.Location = new Point(571, 270);
             StartStop.Name = "StartStop";
             StartStop.Size = new Size(94, 29);
             StartStop.TabIndex = 4;
@@ -154,6 +154,16 @@ namespace CodingTest.UI
             ((ISupportInitialize)MonitoringFrequencyNumeric).EndInit();
             ResumeLayout(false);
             PerformLayout();
+        }
+        private void InitializeControls()
+        {
+
+            dataGridViewDatas.DataSource = _dataList;
+            dataGridViewDatas.AutoGenerateColumns = true;
+            dataGridViewDatas.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+
+            MonitoringFrequencyNumeric.Value = 5;
+
         }
 
         #endregion
