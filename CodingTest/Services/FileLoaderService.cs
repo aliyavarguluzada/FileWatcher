@@ -23,6 +23,7 @@ namespace CodingTest.Services
                 return await loader.LoadDataAsync(filePath);
             }
 
+            //MessageBox.Show($"File format not supported: {fileExtension}");
             throw new NotSupportedException($"File format not supported: {fileExtension}");
         }
        

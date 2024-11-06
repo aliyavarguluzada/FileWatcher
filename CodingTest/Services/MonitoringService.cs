@@ -27,6 +27,7 @@
             _monitoringTimer.Tick += (sender, e) =>
             {
                 // Logic for monitoring, for example, checking files or data every interval
+                //MessageBox.Show($"Interval is: {interval / 1000}");
             };
             _monitoringTimer.Start();
             _isRunning = true;

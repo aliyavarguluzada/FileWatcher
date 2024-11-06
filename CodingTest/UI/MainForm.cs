@@ -48,6 +48,7 @@ namespace CodingTest.UI
             {
                 _monitoringService.Start((int)MonitoringFrequencyNumeric.Value * 1000);
                 StartStopMonitoring.Text = "Stop Monitoring";
+                _fileWatcherService.Start();
             }
             else
             {
@@ -68,7 +69,6 @@ namespace CodingTest.UI
                     textBox1.Text = folderBrowserDialog.SelectedPath;
                     _fileWatcherService.SetPath(folderBrowserDialog.SelectedPath);
 
-                    _fileWatcherService.Start();
                 }
             }
         }
@@ -78,8 +78,13 @@ namespace CodingTest.UI
 
 
 
-        private async void OnNewFileDetected(object sender, FileSystemEventArgs e) =>
-            Task.Run(() => LoadFileData(e.FullPath));
+        private async void OnNewFileDetected(object sender, FileSystemEventArgs e)
+        {
+            if (_monitoringService.IsRunning)
+            {
+                Task.Run(() => LoadFileData(e.FullPath));
+            }
+        }
 
 
         private async void LoadFileData(string filePath)
