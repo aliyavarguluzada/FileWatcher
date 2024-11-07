@@ -4,6 +4,3 @@ CodingTest project ".net8-windows" target etdiyine görə CodingTest.Test projec
 Test etmək üçün TargetTest projecti açıb servisi və bəzi lazim olan dependecy - ləri  ona əlavə etdim,
 amma Test class ına baxsaz CodingTest projectini using etdiyini
 görəcəksiz niyəsini bilmirəm TargetTest Silinən kimi error atacaq ona görə silməyin.
-
-zip file-da gönderdiyim düzgün işləməsə aliyavarguluzada@gmail.com adresinə yazın github-da private repository
-olaraq saxlayacam proyekti.Ordan access verərəm.
