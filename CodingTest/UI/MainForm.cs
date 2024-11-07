@@ -103,10 +103,11 @@ namespace CodingTest.UI
                     dataGridViewDatas.DataSource = new BindingList<Data>(data);
                 }));
 
-                // Optionally show a message about the loaded file
-                // Might delete later this line is not mandatory :)
+
                 Invoke((Action)(() =>
                 {
+                    textBox1.Text = filePath; // Path shows full path of the loaded file
+
                     DirectoryPath.Text = $"Loaded: {Path.GetFileName(filePath)}";
                 }));
                 MessageBox.Show("File loaded");
@@ -117,19 +118,36 @@ namespace CodingTest.UI
             }
         }
 
+        // code below gets the right loader for the file does it by the file extension
         private IFileLoader GetFileLoader(string fileExtension)
             => _loaders.FirstOrDefault(loader => loader.CanLoad(fileExtension));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/// <summary>
+/// ////////////////////
+/// </summary>
+
 
         private void dataGridViewDatas_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }
-
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
         }
-
         private void MainForm_Load(object sender, EventArgs e)
         {
 

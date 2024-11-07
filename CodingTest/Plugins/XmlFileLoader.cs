@@ -14,13 +14,10 @@ namespace CodingTest.Plugins
 
             try
             {
-                // Open the file asynchronously using a FileStream
                 using var fileStream = new FileStream(filePath, FileMode.Open, FileAccess.Read, FileShare.Read, bufferSize: 4096, useAsync: true);
 
-                // Load the XML document asynchronously
                 var doc = await XDocument.LoadAsync(fileStream, LoadOptions.None, default);
 
-                // Loop through XML elements and convert them to your Data model
                 foreach (var element in doc.Descendants("value"))
                 {
                     var tradeData = new Data
@@ -38,16 +35,14 @@ namespace CodingTest.Plugins
             }
             catch (Exception ex)
             {
-                // Log or display error
                 MessageBox.Show($"Error reading file: {ex.Message}");
             }
 
             return records;
         }
 
-        public bool CanLoad(string fileExtension)
-        {
-            return fileExtension.Equals(".xml", StringComparison.OrdinalIgnoreCase);
-        }
+        public bool CanLoad(string fileExtension) =>
+            fileExtension.Equals(".xml", StringComparison.OrdinalIgnoreCase);
+
     }
 }

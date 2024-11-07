@@ -16,7 +16,7 @@ namespace CodingTest.Services
         public async Task<List<Data>> LoadFileAsync(string filePath)
         {
             var fileExtension = Path.GetExtension(filePath); // get filePath
-            var loader = _loaders.FirstOrDefault(l => l.CanLoad(fileExtension)); // get right FileLoader for the file
+            var loader = _loaders.FirstOrDefault(l => l.CanLoad(fileExtension)); // get right FileLoader
 
             if (loader != null)
             {

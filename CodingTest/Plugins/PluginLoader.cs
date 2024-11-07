@@ -7,6 +7,8 @@ namespace CodingTest.Services
     {
         public static async Task<List<IFileLoader>> LoadPluginsAsync(string path)
         {
+            //this code is for dynamically adding dlls containing different fileLoaders that implement IFileLoader  
+
             var loaders = new List<IFileLoader>();
 
             await Task.Run(() =>

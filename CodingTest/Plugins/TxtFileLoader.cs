@@ -15,7 +15,6 @@ namespace CodingTest.Plugins
             {
                 using var reader = new StreamReader(filePath);
 
-                // Skip the header line if present
                 await reader.ReadLineAsync();
 
                 while (!reader.EndOfStream)
@@ -23,7 +22,7 @@ namespace CodingTest.Plugins
                     var line = await reader.ReadLineAsync();
                     var values = line.Split(';');
 
-                    if (values.Length == 6) // Make sure there are 6 columns
+                    if (values.Length == 6) // looks for 6 columns as described in the pdf 
                     {
                         var data = new Data
                         {
@@ -40,17 +39,15 @@ namespace CodingTest.Plugins
             }
             catch (Exception ex)
             {
-                // Handle or log the exception as needed
                 MessageBox.Show($"Error reading file: {ex.Message}");
             }
 
             return records;
         }
 
-        public bool CanLoad(string fileExtension)
-        {
-            return fileExtension.Equals(".txt", StringComparison.OrdinalIgnoreCase);
-        }
+        public bool CanLoad(string fileExtension) =>
+             fileExtension.Equals(".txt", StringComparison.OrdinalIgnoreCase);
+
     }
 
 }

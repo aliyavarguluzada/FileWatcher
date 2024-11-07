@@ -16,7 +16,6 @@ namespace CodingTest.Plugins
                 using var reader = new StreamReader(filePath);
                 using var csv = new CsvReader(reader, CultureInfo.InvariantCulture);
 
-                // Read the records asynchronously
                 await foreach (var record in csv.GetRecordsAsync<Data>())
                 {
                     records.Add(record);
@@ -24,17 +23,15 @@ namespace CodingTest.Plugins
             }
             catch (Exception ex)
             {
-                // Handle or log the exception as needed
                 MessageBox.Show($"Error reading file: {ex.Message}");
             }
 
             return records;
         }
 
-        public bool CanLoad(string fileExtension)
-        {
-            return fileExtension.Equals(".csv", StringComparison.OrdinalIgnoreCase);
-        }
+        public bool CanLoad(string fileExtension) =>
+            fileExtension.Equals(".csv", StringComparison.OrdinalIgnoreCase);
+
 
 
     }
