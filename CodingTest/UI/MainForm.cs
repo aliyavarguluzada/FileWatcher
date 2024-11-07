@@ -36,11 +36,11 @@ namespace CodingTest.UI
 
         private void StartStop_Click(object sender, EventArgs e)
         {
-            // Check if the file path is set for file watcher service
+            // 
             if (string.IsNullOrEmpty(_fileWatcherService.GetPath()))
             {
                 MessageBox.Show("Please set the directory path first.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return; // Prevent starting if path is not set
+                return;
             }
 
             // Start or stop the monitoring service
@@ -48,12 +48,14 @@ namespace CodingTest.UI
             {
                 _monitoringService.Start((int)MonitoringFrequencyNumeric.Value * 1000);
                 StartStopMonitoring.Text = "Stop Monitoring";
+                // if monitoring is active then fileWatcher runs if not fileWatcher also stops
                 _fileWatcherService.Start();
             }
             else
             {
                 _monitoringService.Stop();
                 StartStopMonitoring.Text = "Start Monitoring";
+
             }
 
 
@@ -82,8 +84,10 @@ namespace CodingTest.UI
         {
             if (_monitoringService.IsRunning)
             {
+                // file only gets detected if monitoring is active
                 Task.Run(() => LoadFileData(e.FullPath));
             }
+
         }
 
 

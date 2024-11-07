@@ -15,7 +15,7 @@
 
         public bool IsRunning => _isRunning;
 
-        public void Start(int interval)
+        public async void Start(int interval)
         {
             if (_isRunning)
                 return;
@@ -24,7 +24,7 @@
             {
                 Interval = interval
             };
-            _monitoringTimer.Tick += (sender, e) =>
+            _monitoringTimer.Tick +=  (sender, e) =>
             {
                 // Logic for monitoring, for example, checking files or data every interval
                 //MessageBox.Show($"Interval is: {interval / 1000}");
