@@ -27,7 +27,7 @@
             _monitoringTimer.Tick +=  (sender, e) =>
             {
                 // after changing the interval stop and start again to apply the change 
-                // comment or delete the line below so it bugs you :)
+                // comment or delete the line below if it bugs you :)
                 //MessageBox.Show($"Interval is: {interval / 1000}");
             };
             _monitoringTimer.Start();

@@ -36,7 +36,7 @@ namespace CodingTest.UI
 
         private void StartStop_Click(object sender, EventArgs e)
         {
-            // 
+
             if (string.IsNullOrEmpty(_fileWatcherService.GetPath()))
             {
                 MessageBox.Show("Please set the directory path first.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -55,7 +55,7 @@ namespace CodingTest.UI
             {
                 _monitoringService.Stop();
                 StartStopMonitoring.Text = "Start Monitoring";
-
+                _fileWatcherService.Stop();
             }
 
 
@@ -135,9 +135,9 @@ namespace CodingTest.UI
 
 
 
-/// <summary>
-/// ////////////////////
-/// </summary>
+        /// <summary>
+        /// ////////////////////
+        /// </summary>
 
 
         private void dataGridViewDatas_CellContentClick(object sender, DataGridViewCellEventArgs e)
