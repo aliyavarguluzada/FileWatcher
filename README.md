@@ -1,6 +1,9 @@
 This WinForms app is for checking whether a file (must be xml, csv or txt) is dropped into the provided directory and writes their content into dataviewgrid.
+
 Used System.Windows.Forms.Timer for setting up the timer.
+
 Used System.IO.FileSystemWatcher for raising event when a change in directory occurs.
+
 Used TPL for keeping window responsive.
 
 
